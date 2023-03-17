@@ -1,0 +1,21 @@
+create table studentLab
+(
+studentid number(5)primary key,
+studentfn varchar(15),
+studentln varchar(15),
+major varchar(25)not null,
+mobile number(10)constraint uni_justmob unique
+) ;
+insert into studentLab values(001,'Mohammed','Salem','IT',0501234567); --correct--
+insert into studentLab values(001,'Ali','Qasm','CS',057774411); --wrong--
+insert into studentLab values(002,'Mohammed','Salem','IT',0501234567); --wrong--
+insert into studentLab values(003,' ','','CS',0501234569);  --correct--
+insert into studentLab values(004,'Belal','Ali','',0501234570);    --correct--
+-----------------------------------------------------------------------------------------------------
+--This is the different between unique constaranit and primary key--
+insert into studentLab values(004,'Belal','Ali','Cnet','');     --primary key--
+insert into studentLab values('','Belal','Ali','Cnet',1234567891);   --unique constaraint--
+-----------------------------------------------------------------------------------------------------
+update studentLab set  studentid=005 where studentfn='Ali';
+update studentLab set  mobile=0501234367 where studentid=002;
+SELECT * FROM studentLab;
